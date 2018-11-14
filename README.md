@@ -42,6 +42,13 @@ to run the project , do :
   -You can upload your image <br/>
   -You can view your certificates and download them <br/>
   
+<p align="center">
+   <img src="shots/user1.png" width="100%" alt="screenshot">
+ <br/>
+    <img src="shots/user2.png" width="100%" alt="screenshot">
+<br/>
+</p>
+
 
 
   
