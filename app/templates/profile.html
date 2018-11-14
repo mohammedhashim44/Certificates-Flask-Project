@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<title>Profile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/w3css.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css') }}">
+
+<style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    div {
+        color: black;
+        font-family: "Raleway", sans-serif
+    }
+
+    nav>* {
+        color: white;
+        font-family: "Raleway", sans-serif
+    }
+
+    img {
+        object-fit: cover;
+        width: 65px;
+        height: 65px;
+    }
+
+    .cert {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .img_profile {
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
+<body class=" w3-content" style="max-width:1600px;background-color :rgb(238, 238, 238) !important">
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse " style="z-index:3;width:300px;background-color:rgb(231, 70, 70)" id="mySidebar">
+        <br>
+        <div class="w3-container">
+
+            <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+                <i class="fa fa-remove"></i>
+            </a>
+
+            <img src="{{ url_for('user_images',filename=image) }}" class="w3-round img_profile">
+
+
+
+
+            <br>
+            <br>
+            <h4 class="w3-text-white">
+                <b>{{username}}</b>
+            </h4>
+
+
+
+        </div>
+        <div class="w3-bar-block">
+            <a style="color: rgb(255, 217, 0)" href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">
+                <i class="fa fa-th-large fa-fw w3-margin-right"></i>
+                <b>PROFILE</b>
+            </a>
+
+            <div onclick="toogle('upload_form')" class="w3-bar-item w3-button ">
+                <i class="fa fa-upload fa-fw w3-margin-right"></i>UPLOAD IMAGE
+
+                <form id="upload_form" action="{{ url_for('profile') }}" enctype="multipart/form-data" method="POST" class="w3-hide">
+                    <div class="w3-text-white">
+
+                        <p>
+                            <input id="upload_button" required="required" type="file" class="w3-button w3-padding" name="image">
+                        </p>
+                        <p>
+                            <input style="" id="submit_button" type="submit" class="w3-button" value="Upload">
+                    </div>
+                </form>
+            </div>
+
+
+            <a href="{{ url_for('home') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
+                <i class="fa fa-home fa-fw w3-margin-right"></i>HOME</a>
+            <a href="{{ url_for('logout') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
+                <i class="fa fa-sign-out fa-fw w3-margin-right"></i>LOGOUT</a>
+        </div>
+        <div class="w3-panel w3-large">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </div>
+    </nav>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+        id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main  " style="margin-left:300px">
+
+        <!-- Header -->
+        <header id="" class="">
+            <a href="#">
+                <img src="{{ url_for('user_images',filename=image) }}" class="w3-circle w3-right  w3-margin w3-hide-large w3-hover-opacity">
+            </a>
+
+
+            <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </span>
+            <div class="w3-container">
+                <h1 style="color: rgb(228, 91, 66)">
+                    <b>My Profile</b>
+                </h1>
+
+            </div>
+        </header>
+        <hr/> {% if n > 0  %}
+
+
+
+        <!-- First Photo Grid-->
+        <div class="w3-row-padding">
+
+            {% for i in certificates %}
+
+            <div class="w3-third   w3-margin-bottom">
+                <div class="w3-black w3-card-4">
+
+                    <img src="{{ url_for('certificates', filename=i['image']    ) }}" alt="Norway" class="w3-hover-opacity cert">
+                    <div class="w3-container w3-white">
+                        <p>
+                            <b>{{ i["name"] }}</b>
+                        </p>
+                        <p>
+                            {{ i["about"] }}
+                        </p>
+
+                        <p style="color: rgb(228, 91, 66)">
+                            <b>
+
+                                <a href="{{ url_for('certificates', filename=i['image']    ) }}" class="" style="text-decoration: none">
+                                    <i class="fa fa-download fa-fw "></i> Donwload</a>
+
+                            </b>
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+            {% endfor %}
+
+
+        </div>
+
+
+        {% else %}
+
+
+        <div class="w3-container w3-center w3-padding-48 w3-margin w3-card-4 w3-round-xlarge w3-white">
+            <h1 style="color: rgb(228, 91, 66)">
+                <i class="fa fa-exclamation-circle"></i> No Certificates yet
+            </h1>
+        </div>
+
+        {% endif %}
+
+
+        <!-- End page content -->
+    </div>
+
+    <script>
+        // Script to open and close sidebar
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+
+        function toogle(id)
+        {
+            item = document.getElementById(id) ; 
+            if(item.className.includes("w3-hide"))
+            {
+                item.className = item.className.replace("w3-hide", "") ;
+            }
+            else 
+            {
+                item.className = item.className +" w3-hide " ; 
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

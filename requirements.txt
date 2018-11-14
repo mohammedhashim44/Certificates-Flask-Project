@@ -1,0 +1,8 @@
+SQLAlchemy==1.2.12
+itsdangerous==0.24
+Flask_Uploads==0.2.1
+WTForms==2.2.1
+Flask_SQLAlchemy==2.3.2
+Flask==1.0.2
+Jinja2==2.10
+Flask_Admin==1.5.2

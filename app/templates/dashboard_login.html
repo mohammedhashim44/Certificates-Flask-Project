@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/w3css.css') }}">
+
+<body class="w3-blue">
+    <div class="w3-padding">
+        <form method="POST" action="/dashboard_login" style="max-width:500px ;margin-left: auto;margin-right: auto"
+            class="w3-card-4 w3-white center w3-container w3-padding">
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p class="w3-container w3-text-red">
+                {{message}}
+            </p>
+            <hr />
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            Email
+            <input class="w3-input" name="email" type="email">
+            <br />
+            <br />
+
+            Password
+            <input class="w3-input" name="password" type="password">
+            <br />
+            <br />
+
+            <input style="width: 100%" class="w3-button w3-blue w3-round-large" type="submit" value="Login">
+
+        </form>
+    </div>
+</body>
+
+</html>
