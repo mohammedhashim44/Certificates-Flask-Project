@@ -133,12 +133,12 @@
         <hr/> {% if n > 0  %}
 
 
+        {% for row in certificates | batch(3, '&nbsp;') %}
 
         <!-- First Photo Grid-->
         <div class="w3-row-padding">
 
-            {% for i in certificates %}
-
+            {% for i in row %}
             <div class="w3-third   w3-margin-bottom">
                 <div class="w3-black w3-card-4">
 
@@ -169,7 +169,7 @@
 
 
         </div>
-
+        {% endfor %}
 
         {% else %}
 
