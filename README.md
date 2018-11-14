@@ -42,7 +42,8 @@ to run the project , do :
   -You can upload your image <br/>
   -You can view your certificates and download them <br/>
   
-  ![alt text](http://url/to/img.png)
+
+
   
   #### The admin end
   -Go to ```http://localhost:5000/admin```<br/>
@@ -69,5 +70,7 @@ to run the project , do :
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+
 
 
