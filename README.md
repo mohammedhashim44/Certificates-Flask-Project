@@ -1,7 +1,7 @@
 # Certificates
 
-A small website built with flask.There is users and an admin.
-The admin can add certificates to the users so they can login and download their certificates.
+A small website built with flask.There are users and an admin.
+The admin can add certificates to the users , so they can log in and download their certificates.
 
 
 ## Getting Started
@@ -46,9 +46,9 @@ to run the project , do :
   
   ##### Shots : 
 <p align="center">
-   <img src="shots/user1.png" width="100%" alt="screenshot">
+   <img src="shots/user1.png" width="100%" alt="screenshot" style="border: 1px solid black" >
  <br/>
-    <img src="shots/user2.png" width="100%" alt="screenshot">
+    <img src="shots/user2.png" width="100%" alt="screenshot"  style="border: 1px solid black">
 <br/>
 </p>
 
@@ -65,13 +65,13 @@ to run the project , do :
  
    ##### Shots :
 <p align="center">
-   <img src="shots/admin4.png" width="100%" alt="screenshot">
+   <img src="shots/admin4.png" width="100%" alt="screenshot"  style="border: 1px solid black">
  <br/>
-   <img src="shots/admin1.png" width="100%" alt="screenshot">
+   <img src="shots/admin1.png" width="100%" alt="screenshot"  style="border: 1px solid black">
  <br/>
-    <img src="shots/admin2.png" width="100%" alt="screenshot">
+    <img src="shots/admin2.png" width="100%" alt="screenshot"  style="border: 1px solid black">
 <br/>
-     <img src="shots/admin3.png" width="100%" alt="screenshot">
+     <img src="shots/admin3.png" width="100%" alt="screenshot"  style="border: 1px solid black">
 <br/>
 </p>
 
@@ -79,12 +79,12 @@ to run the project , do :
 
 ## Contents
 - ```app``` folder :
-    - ```app.py``` contains the defenistions of routes and app configurations , it's the main file . 
+    - ```app.py``` contains the definitions of routes and app configurations , it's the main file . 
     - ```model.py``` contains the SQLalchemy table models and event listeners . 
     - ```DatabaseHelper.py``` contains functions to handle insertion into the database .
     - ```myAdmin.py``` contains the views of the admin dashboard . 
 
--```static``` folder : 
+- ```static``` folder : 
     - ```certificates``` the folder where the certificates images will be saved . 
     - ```user_images``` the folder where the users images will be saved
     - ```css``` the folder contains css styles 
@@ -95,10 +95,10 @@ to run the project , do :
 ## Security 
 
 For security , no user can view the images or certificates of another user . 
-To implement this , each user has an ID , for eexample we have ```username:test ID:1``` .
+To implement this , each user has an ID , for example we have ```username:test ID:1``` .
 <br/>
 When the user upload photo or the admin upload new certificate for this user , a prefix string contains the ID of the user  will be added to the name of the image , if the image is ```cert.jpg``` it will be ```ID-1-cert.jpg``` .<br/>
-If the user enter ```certificates/ID-1-cert.jpg``` , the server will compare the current user ID string (```ID-{{current_user_id}}```) with the string in the image name , if it finds a match the user can view the image , else it will not be viewd . 
+If the user enter ```certificates/ID-1-cert.jpg``` , the server will compare the current user ID string (```ID-{{current_user_id}}```) with the string in the image name , if it finds a match the user can view the image , else it will not be viewed . 
 
 
 ## Built With
