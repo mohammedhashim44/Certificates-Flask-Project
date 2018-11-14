@@ -114,7 +114,7 @@ If the user enter ```certificates/ID-1-cert.jpg``` , the server will compare the
  
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License .
 
 
 
