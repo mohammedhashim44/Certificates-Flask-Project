@@ -139,6 +139,7 @@
         <div class="w3-row-padding">
 
             {% for i in row %}
+            {% if i["name"] and i["about"] %}
             <div class="w3-third   w3-margin-bottom">
                 <div class="w3-black w3-card-4">
 
@@ -164,7 +165,7 @@
 
                 </div>
             </div>
-
+            {% endif %}
             {% endfor %}
 
 
