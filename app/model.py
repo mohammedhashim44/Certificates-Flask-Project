@@ -37,7 +37,7 @@ def del_user(mapper, connection, target):
     
     # delete any certificates belong to this user 
     db.session.begin_nested()
-    certificates = Certificate.query.filter(Certificate.user_id==1)
+    certificates = Certificate.query.filter(Certificate.user_id==target.id)
 
     # delete certificates image and the thumnails of it 
     for certif_ in certificates:
@@ -48,7 +48,7 @@ def del_user(mapper, connection, target):
             pass
     try : 
         # delete certificates records 
-        Certificate.query.filter(Certificate.user_id==1).delete()
+        Certificate.query.filter(Certificate.user_id==target.id).delete()
         db.session.commit()
     except Exception:
         pass
